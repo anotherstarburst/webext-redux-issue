@@ -1,0 +1,20 @@
+{
+  "name": "Issue demo",
+  "short_name": "Issue",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "all_frames": false,
+      "js": ["content.bundle.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "content_security_policy": "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'unsafe-inline'; object-src 'self'; child-src 'self'; connect-src ws://localhost:3000 http://localhost/sockjs-node/",
+  "web_accessible_resources": ["iframe.html", "iframe.bundle.js"]
+}
